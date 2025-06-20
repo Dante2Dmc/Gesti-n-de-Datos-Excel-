@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD con Excel y Fondo SVG</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      background-color: #003C26;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Crect fill='%23003C26' width='120' height='120'/%3E%3Cpolygon fill='%23000' fill-opacity='.1' points='120 0 120 60 90 30 60 0 0 0 0 0 60 60 0 120 60 120 90 90 120 60 120 0'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="min-h-screen flex items-center justify-center text-white text-base font-medium px-4 py-8">
+    <div class="bg-gray-900 p-6 rounded-md shadow-md w-full max-w-xl text-gray-100">
+      <h1 class="text-xl font-semibold text-center mb-4">Gestión de Datos (Excel)</h1>
+
+      <label class="block text-sm text-gray-100 mb-2">
+        Cargar archivo Excel (datos_YYYY-MM-DD.xlsx):
+      </label>
+      <input type="file" id="excelFile" class="mb-4 w-full" accept=".xlsx, .xls" />
+
+      <input type="text" id="nombre" placeholder="Nombre" class="w-full mb-3 p-2 rounded-md border border-gray-300 text-black" />
+      <input type="text" id="edad" placeholder="Edad" class="w-full mb-4 p-2 rounded-md border border-gray-300 text-black" />
+
+      <button onclick="agregarDato()" class="bg-green-800 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded mb-4">
+        Guardar
+      </button>
+
+      <table class="w-full text-left text-sm">
+        <thead>
+          <tr class="font-semibold text-black">
+            <th class="pb-2">ID</th>
+            <th class="pb-2">Nombre</th>
+            <th class="pb-2">Edad</th>
+            <th class="pb-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tablaDatos">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
